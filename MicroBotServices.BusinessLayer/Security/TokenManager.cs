@@ -3,6 +3,7 @@ using JWT.Algorithms;
 using JWT.Serializers;
 using MicroBotServices.BusinessLayer.Extensions;
 using MicroBotServices.Models.Common;
+using MicroBotServices.Models.DomainModels;
 using MicroBotServices.Models.ValidationHelper;
 using Newtonsoft.Json;
 using System;

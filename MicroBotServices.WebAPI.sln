@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroBotServices.WebAPI", "MicroBotServices.WebAPI\MicroBotServices.WebAPI.csproj", "{09F672B1-E561-4329-8709-2E4F24E6ACF8}"
 EndProject
@@ -10,6 +10,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroBotServices.BusinessLayer", "MicroBotServices.BusinessLayer\MicroBotServices.BusinessLayer.csproj", "{72AF1370-081B-4F1E-A606-1586A1265465}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroBotServices.DataLayer", "MicroBotServices.DataLayer\MicroBotServices.DataLayer.csproj", "{C0C8B295-EA29-4F28-91EA-A22F5B0018D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AE6AF3A9-5917-43F1-AF74-85ECEC54CE55}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

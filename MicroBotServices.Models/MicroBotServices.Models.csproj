@@ -45,6 +45,10 @@
     <Compile Include="Common\EmployeeToken.cs" />
     <Compile Include="Common\IdentityHelper.cs" />
     <Compile Include="Common\TokenHolder.cs" />
+    <Compile Include="DomainModels\BookSchedule.cs" />
+    <Compile Include="DomainModels\CancelSchedule.cs" />
+    <Compile Include="DomainModels\MeetingRoom.cs" />
+    <Compile Include="DomainModels\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationHelper\Edit.cs" />
     <Compile Include="ValidationHelper\EditException.cs" />

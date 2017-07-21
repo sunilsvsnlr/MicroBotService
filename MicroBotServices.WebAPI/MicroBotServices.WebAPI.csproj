@@ -22,6 +22,9 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <NuGetPackageImportStamp>e068379a</NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -119,7 +122,11 @@
     <Compile Include="Common\ILogComplexType.cs" />
     <Compile Include="Common\TraceLogContractResolver.cs" />
     <Compile Include="Configuration\AutofacConfig.cs" />
+    <Compile Include="Controllers\ScheduleMeetingApiController.cs" />
+    <Compile Include="Controllers\CancelScheduleApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginApiController.cs" />
+    <Compile Include="Controllers\MeetingRoomApiController.cs" />
     <Compile Include="Filters\BasicAuthenticationIdentity.cs" />
     <Compile Include="Filters\ExceptionHandlerFilterAttribute.cs" />
     <Compile Include="Filters\MicroBotAuthorizeAttribute.cs" />
@@ -127,11 +134,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BookSchedule.cs" />
+    <Compile Include="ViewModels\CancelSchedule.cs" />
+    <Compile Include="ViewModels\MeetingRoom.cs" />
+    <Compile Include="ViewModels\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="NLog.config" />
+    <None Include="Properties\PublishProfiles\Development.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,12 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MicroBotServices.BusinessLayer\MicroBotServices.BusinessLayer.csproj">
       <Project>{72af1370-081b-4f1e-a606-1586a1265465}</Project>
       <Name>MicroBotServices.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroBotServices.DataLayer\MicroBotServices.DataLayer.csproj">
+      <Project>{c0c8b295-ea29-4f28-91ea-a22f5b0018d6}</Project>
+      <Name>MicroBotServices.DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\MicroBotServices.Models\MicroBotServices.Models.csproj">
       <Project>{6b9d8e32-c3ba-4121-bea2-9f68081cb47e}</Project>
@@ -184,7 +199,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
